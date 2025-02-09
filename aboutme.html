@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me - Priyanshu Shakya</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;700&family=Poppins:wght@400;600&display=swap">
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #1a392a, #152e22);
+      color: #f4f1e9;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+      background: rgba(26, 57, 42, 0.9);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(10px);
+      border: 3px solid #ff006f;
+      max-width: 800px;
+      width: 90%;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    h1 {
+      font-family: 'Oxanium', sans-serif;
+      font-size: 3.5em;
+      margin: 0 0 20px;
+      color: #ff006f;
+      text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.2);
+      letter-spacing: 2px;
+    }
+
+    h2 {
+      font-size: 1.8em;
+      margin: 10px 0;
+      color: #f4f1e9;
+    }
+
+    p {
+      font-size: 1.2em;
+      line-height: 1.6;
+      margin: 20px 0;
+    }
+
+    .highlight {
+      color: #ff006f;
+      font-weight: bold;
+    }
+
+    .project-link {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 15px 30px;
+      background: linear-gradient(135deg, #ff006f, #6600cc);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 14px;
+      font-size: 1.2em;
+      font-weight: bold;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255, 0, 111, 0.4);
+    }
+
+    .project-link:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 25px rgba(255, 0, 111, 0.8);
+    }
+
+    .project-link:active {
+      transform: scale(0.98);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Background Animation */
+    body::before {
+      content: '';
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      top: -50%;
+      left: -50%;
+      z-index: -1;
+      background: repeating-conic-gradient(
+        from 0deg,
+        #1a392a 0deg 10deg,
+        #152e22 10deg 20deg
+      );
+      animation: rotate 60s linear infinite;
+    }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Priyanshu Shakya</h1>
+    <h2>Computer Science & Engineering Student</h2>
+    <p>
+      Hey there! I'm <span class="highlight">Priyanshu Shakya</span>, a passionate CSE student with a love for coding, problem-solving, and building cool stuff. 
+      This fun project was one of my steps towards exploring the fascinating world of <span class="highlight">web development</span>.
+    </p>
+    <p>
+      I believe in learning by doing, and this project was a great way to dive deeper into front-end development, animations, and user interaction. 
+      It's not just about writing code; it's about creating experiences that are both functional and delightful.
+    </p>
+    <p>
+      Feel free to check out my other projects and let me know what you think! I'm always eager to learn more and improve my skills.
+    </p>
+    <a href="https://github.com/Priyanshu261202" class="project-link">View My Projects</a>
+  </div>
+</body>
+</html>

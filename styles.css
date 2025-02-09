@@ -1,0 +1,312 @@
+/* General Styles */
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@300;700&display=swap');
+
+body {
+    font-family: 'Oxanium', sans-serif;
+        background-color: #1a392a;  
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    color: #f4f1e9; 
+    position: relative;
+    overflow: hidden;
+}
+
+/* Sunburst Background */
+body::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    z-index: -1;
+    background: repeating-conic-gradient(
+        from 0deg,
+        #1a392a 0deg 10deg,
+        #152e22 10deg 20deg
+    );
+    animation: rotate 60s linear infinite;
+}
+
+.container {
+    max-width: 900px; 
+    width: 80%; 
+    background: rgba(26, 57, 42, 0.9);  
+    padding: 15px; 
+    bottom: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    border: 3px solid #ff006f;
+    position: relative;
+    top: 20px; /* Adds space below the fixed navbar */
+}
+
+h1 {
+    color: #f4f1e9; 
+    font-size: 2em;
+    margin: 15px 0 40px 0;
+    text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.2);
+    letter-spacing: 2px;
+}
+
+/* Wheel Container */
+.wheel-container {
+    position: relative;
+    width: 100%;
+    max-width: 330px;
+    margin: 15px auto 40px auto;
+}
+
+#wheel {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    border: 3px solid #ff006f;  
+    animation: glow 2s ease-in-out infinite;
+}
+
+.arrow {
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-top: 40px solid #ff006f;  
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.5));
+}
+
+
+.input-container {
+    margin: 15px 0;
+}
+
+.input-label {
+    font-size: 14px;
+    color: #f4f1e9; 
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+textarea {
+    width: 90%;
+    padding: 12px;
+    border-radius: 10px;
+    margin-top: 12px;
+    border: 3px solid #ff006f;  
+    font-family: 'Press Start 2P', sans-serif;
+    background: rgba(244, 241, 233, 0.9); 
+    font-size: 12px;
+    color: #1a392a;  
+    transition: all 0.3s ease;
+    resize: none;
+    height: 80px;
+}
+
+textarea:focus {
+    border-color: #f4f1e9;  
+    box-shadow: 0 0 15px rgba(212, 165, 185, 0.5);  
+    outline: none;
+}
+
+/* Spin Button */
+
+.spin-button {
+    background: linear-gradient(135deg, #ff006f, #6600cc); 
+    color: #ffffff;  
+    padding: 15px 30px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-family: 'Press Start 2P', sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    max-width: 220px;
+    margin: 15px auto;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 15px rgba(255, 0, 111, 0.4);
+    animation: gradient-spin 3s linear infinite;
+}
+
+
+.spin-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(255, 0, 111, 0.8);
+}
+
+
+.spin-button:active {
+    transform: scale(0.98);
+    box-shadow: 0 0 10px rgba(255, 0, 111, 0.9);
+}
+
+
+@keyframes gradient-spin {
+    0% {
+        background: linear-gradient(0deg, #ff006f, #6600cc);
+    }
+    25% {
+        background: linear-gradient(90deg, #ff006f, #0066ff);
+    }
+    50% {
+        background: linear-gradient(180deg, #ff006f, #00ccff);
+    }
+    75% {
+        background: linear-gradient(270deg, #ff006f, #00ff66);
+    }
+    100% {
+        background: linear-gradient(360deg, #ff006f, #6600cc);
+    }
+}
+
+/* Result Popup */
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(26, 57, 42, 0.518);
+    backdrop-filter: blur(10px);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background: #1a392a48;
+    padding: 30px 45px;
+    border-radius: 15px;
+    font-size: 20px;
+    color: #f4f1e9;
+    border: 2px solid #ff006f;
+    box-shadow: 0 0 30px rgba(212, 165, 185, 0.3);
+    animation: fadeIn 0.5s ease-in-out;
+    text-align: center;
+    position: relative;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes glow {
+    0%, 100% { box-shadow: 0 0 20px rgba(212, 165, 185, 0.3); }
+    50% { box-shadow: 0 0 40px rgba(212, 165, 185, 0.5); }
+}
+
+@keyframes fadeIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+/* Close Button */
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff006f;  
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.close-button:hover {
+    transform: scale(1.2);
+    color: #ff3399;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+   
+    z-index: 1000;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+
+.nav-left a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 24px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.nav-left a:hover {
+    color: #ff006f;
+}
+
+.instagram-icon {
+    width: 9px;
+    height: 9px;
+    margin-right: 10px;
+    margin-left: 1200px;
+    transition: transform 0.3s, filter 0.3s;
+    filter: grayscale(100%);
+}
+
+.instagram-icon:hover {
+    transform: scale(1.1);
+    filter: none;
+}
+
+.github-icon {
+    width: 4px;
+    height: 4px;
+    margin-left: 5px;
+    transition: transform 0.3s, filter 0.3s;
+    filter: grayscale(100%);
+}
+
+.github-icon:hover {
+    transform: scale(1.1);
+    filter: none;
+}
+
+.navbar img {
+    width: 50px;
+    height: auto;
+}
+
+
